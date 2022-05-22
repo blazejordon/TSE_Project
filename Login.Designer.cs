@@ -59,6 +59,7 @@
             // 
             this.EnterPassword.Location = new System.Drawing.Point(296, 221);
             this.EnterPassword.Name = "EnterPassword";
+            this.EnterPassword.ReadOnly = true;
             this.EnterPassword.Size = new System.Drawing.Size(203, 23);
             this.EnterPassword.TabIndex = 22;
             // 
