@@ -75,6 +75,10 @@ namespace TSE
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            //string testencrypt = Encrypt("1234");
+            //string testdecrypt = Decrypt("CUFmrcVwQLU=");
+            //MessageBox.Show(testencrypt);
+            //MessageBox.Show(testdecrypt);
             bool Verified = false;
             string AttemptUsername = EnterUserName.Text;
             string AttemptPassword = EnterPassword.Text;
@@ -101,10 +105,16 @@ namespace TSE
             this.Hide();
         }
 
-        private string Encrypt(string Password)
+        private string Encrypt(string Password) //Encrypts a password
         {
             Encryption encrypt = new Encryption();
             return encrypt.Encode(Password);
+        }
+
+        private string Decrypt(string Password) //Decrypts a password
+        {
+            Encryption decrypt = new Encryption();
+            return decrypt.decode(Password);
         }
 
         private void ButtonRegister_Click(object sender, EventArgs e)
@@ -112,14 +122,20 @@ namespace TSE
             Register register = new Register();
             register.Show();
             this.Close();
-        }
+        } //Moves to Register Screen
 
         private void ForgotPasswordButton_Click(object sender, EventArgs e)
         {
             Forgot_Password Forgot = new Forgot_Password();
             Forgot.Show();
             this.Close();
-        }
+        } //Moves to Forgot Password Screen
+
+        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                LoginButton.PerformClick();
+        } //Allows Enter to be used to click Login
 
     }
 }
