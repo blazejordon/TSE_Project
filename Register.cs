@@ -23,5 +23,28 @@ namespace TSE
             Login.Show();
             this.Hide();
         }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            if (RegisterConfirmPassword.Text == RegisterPassword.Text && RegisterPassword != null)
+            {
+                string path = "TSEprogramdata.txt";
+                string NewUsername = EnterRegisterUserName.Text;
+                string NewPassword = RegisterPassword.Text;
+
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine("UserLoginStart//");
+                    sw.WriteLine(NewUsername);
+                    sw.WriteLine(NewPassword);
+                    sw.WriteLine("//UserLoginEnd");
+                    sw.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Password and Confirm Password do not match!", "Error");
+            }
+        }
     }
 }

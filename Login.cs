@@ -90,11 +90,11 @@ namespace TSE
             }             
             else
             {
-                //string testencrypt = Encrypt("Test"); //test, not feature
+                string testencrypt = Encrypt("Test"); //test, not feature
                 //
                 // PUT 'correct();' HERE TO SKIP TYPING IN LOGIN DATA.
                 //
-                MessageBox.Show("Incorrect Username or Password!","Error");
+                MessageBox.Show("Incorrect Username or Password!", "Error");
             }
         }
 
@@ -121,14 +121,14 @@ namespace TSE
         {
             Register register = new Register();
             register.Show();
-            this.Close();
+            this.Hide();
         } //Moves to Register Screen
 
         private void ForgotPasswordButton_Click(object sender, EventArgs e)
         {
             Forgot_Password Forgot = new Forgot_Password();
             Forgot.Show();
-            this.Close();
+            this.Hide();
         } //Moves to Forgot Password Screen
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
