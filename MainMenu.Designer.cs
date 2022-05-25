@@ -32,8 +32,8 @@
             this.StartLogging = new System.Windows.Forms.Button();
             this.StopLogging = new System.Windows.Forms.Button();
             this.EndProgram = new System.Windows.Forms.Button();
-            this.UserStats = new System.Windows.Forms.Button();
             this.Signout = new System.Windows.Forms.Button();
+            this.CreateReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Title
@@ -76,16 +76,6 @@
             this.EndProgram.UseVisualStyleBackColor = true;
             this.EndProgram.Click += new System.EventHandler(this.EndProgram_Click);
             // 
-            // UserStats
-            // 
-            this.UserStats.Location = new System.Drawing.Point(12, 242);
-            this.UserStats.Name = "UserStats";
-            this.UserStats.Size = new System.Drawing.Size(137, 63);
-            this.UserStats.TabIndex = 4;
-            this.UserStats.Text = "Statistics";
-            this.UserStats.UseVisualStyleBackColor = true;
-            this.UserStats.Click += new System.EventHandler(this.UserStats_Click);
-            // 
             // Signout
             // 
             this.Signout.Location = new System.Drawing.Point(12, 371);
@@ -96,14 +86,26 @@
             this.Signout.UseVisualStyleBackColor = true;
             this.Signout.Click += new System.EventHandler(this.Signout_Click);
             // 
+            // CreateReport
+            // 
+            this.CreateReport.BackColor = System.Drawing.SystemColors.Control;
+            this.CreateReport.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CreateReport.Location = new System.Drawing.Point(81, 206);
+            this.CreateReport.Name = "CreateReport";
+            this.CreateReport.Size = new System.Drawing.Size(136, 67);
+            this.CreateReport.TabIndex = 6;
+            this.CreateReport.Text = "Create Report";
+            this.CreateReport.UseVisualStyleBackColor = true;
+            this.CreateReport.Click += new System.EventHandler(this.CreateReport_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CreateReport);
             this.Controls.Add(this.Signout);
-            this.Controls.Add(this.UserStats);
             this.Controls.Add(this.EndProgram);
             this.Controls.Add(this.StopLogging);
             this.Controls.Add(this.StartLogging);
@@ -121,7 +123,7 @@
         private Button StartLogging;
         private Button StopLogging;
         private Button EndProgram;
-        private Button UserStats;
         private Button Signout;
+        private Button CreateReport;
     }
 }

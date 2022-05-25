@@ -4,6 +4,7 @@ using System.IO;
 
 namespace TSE
 {
+  
     public partial class MainMenu : Form
     {
         public MainMenu()
@@ -63,13 +64,6 @@ namespace TSE
 
         }
 
-        private void UserStats_Click(object sender, EventArgs e)
-        {
-            StatisticsScreen Stats = new StatisticsScreen();
-            Stats.Show();
-            this.Hide();
-        }
-
         private void EndProgram_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -80,6 +74,26 @@ namespace TSE
             Login Login = new Login();
             Login.Show();
             this.Hide(); //change to remove eventually maybe
+        }
+
+        private void CreateReport_Click(object sender, EventArgs e)
+        {
+            String filepath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            if (!Directory.Exists(filepath))
+            {
+                Directory.CreateDirectory(filepath);
+            }
+
+            string path = (filepath + @"\keystrokes.txt");
+
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+
+                }
+            }
         }
     }
 }
