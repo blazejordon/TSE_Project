@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             this.TitleForgotPassword = new System.Windows.Forms.Label();
-            this.EnterForgotPasswordConfirmPassword = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.EnterForgotPasswordUserName = new System.Windows.Forms.TextBox();
-            this.EnterForgotPasswordPassword = new System.Windows.Forms.TextBox();
-            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.EnterForgotPasswordEmail = new System.Windows.Forms.TextBox();
+            this.EmailLabel = new System.Windows.Forms.Label();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.ButtonForgotPasswordBack = new System.Windows.Forms.Button();
             this.ButtonConfirm = new System.Windows.Forms.Button();
+            this.OutputPassword = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.EnterEmailCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CheckCode = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TitleForgotPassword
@@ -49,49 +53,34 @@
             this.TitleForgotPassword.TabIndex = 3;
             this.TitleForgotPassword.Text = "Forgot Password";
             // 
-            // EnterForgotPasswordConfirmPassword
-            // 
-            this.EnterForgotPasswordConfirmPassword.Location = new System.Drawing.Point(299, 288);
-            this.EnterForgotPasswordConfirmPassword.Name = "EnterForgotPasswordConfirmPassword";
-            this.EnterForgotPasswordConfirmPassword.Size = new System.Drawing.Size(203, 23);
-            this.EnterForgotPasswordConfirmPassword.TabIndex = 22;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(299, 270);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 15);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Confirm Password";
-            // 
             // EnterForgotPasswordUserName
             // 
-            this.EnterForgotPasswordUserName.Location = new System.Drawing.Point(299, 157);
+            this.EnterForgotPasswordUserName.Location = new System.Drawing.Point(190, 157);
             this.EnterForgotPasswordUserName.Name = "EnterForgotPasswordUserName";
             this.EnterForgotPasswordUserName.Size = new System.Drawing.Size(203, 23);
             this.EnterForgotPasswordUserName.TabIndex = 20;
             // 
-            // EnterForgotPasswordPassword
+            // EnterForgotPasswordEmail
             // 
-            this.EnterForgotPasswordPassword.Location = new System.Drawing.Point(299, 219);
-            this.EnterForgotPasswordPassword.Name = "EnterForgotPasswordPassword";
-            this.EnterForgotPasswordPassword.Size = new System.Drawing.Size(203, 23);
-            this.EnterForgotPasswordPassword.TabIndex = 19;
+            this.EnterForgotPasswordEmail.Location = new System.Drawing.Point(190, 219);
+            this.EnterForgotPasswordEmail.Name = "EnterForgotPasswordEmail";
+            this.EnterForgotPasswordEmail.Size = new System.Drawing.Size(203, 23);
+            this.EnterForgotPasswordEmail.TabIndex = 19;
             // 
-            // PasswordLabel
+            // EmailLabel
             // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(299, 201);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(57, 15);
-            this.PasswordLabel.TabIndex = 18;
-            this.PasswordLabel.Text = "Password";
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(190, 201);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(36, 15);
+            this.EmailLabel.TabIndex = 18;
+            this.EmailLabel.Text = "Email";
+            this.EmailLabel.Click += new System.EventHandler(this.PasswordLabel_Click);
             // 
             // UserNameLabel
             // 
             this.UserNameLabel.AutoSize = true;
-            this.UserNameLabel.Location = new System.Drawing.Point(299, 139);
+            this.UserNameLabel.Location = new System.Drawing.Point(190, 139);
             this.UserNameLabel.Name = "UserNameLabel";
             this.UserNameLabel.Size = new System.Drawing.Size(60, 15);
             this.UserNameLabel.TabIndex = 17;
@@ -113,8 +102,63 @@
             this.ButtonConfirm.Name = "ButtonConfirm";
             this.ButtonConfirm.Size = new System.Drawing.Size(136, 67);
             this.ButtonConfirm.TabIndex = 23;
-            this.ButtonConfirm.Text = "Confirm";
+            this.ButtonConfirm.Text = "Send Code";
             this.ButtonConfirm.UseVisualStyleBackColor = true;
+            this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
+            // 
+            // OutputPassword
+            // 
+            this.OutputPassword.Location = new System.Drawing.Point(418, 219);
+            this.OutputPassword.Name = "OutputPassword";
+            this.OutputPassword.ReadOnly = true;
+            this.OutputPassword.Size = new System.Drawing.Size(203, 23);
+            this.OutputPassword.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(418, 201);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 15);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Saved Password:";
+            // 
+            // EnterEmailCode
+            // 
+            this.EnterEmailCode.Location = new System.Drawing.Point(418, 157);
+            this.EnterEmailCode.Name = "EnterEmailCode";
+            this.EnterEmailCode.Size = new System.Drawing.Size(203, 23);
+            this.EnterEmailCode.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(418, 139);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 15);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Enter Code:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(190, 256);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(270, 60);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Enter Username and Email, if they are a registered \r\nuser, Health Assist will sen" +
+    "d an email with a one \r\ntime code. This code is to input to the right \r\nto retri" +
+    "eve the password of the account.";
+            // 
+            // CheckCode
+            // 
+            this.CheckCode.Location = new System.Drawing.Point(472, 256);
+            this.CheckCode.Name = "CheckCode";
+            this.CheckCode.Size = new System.Drawing.Size(83, 45);
+            this.CheckCode.TabIndex = 30;
+            this.CheckCode.Text = "Enter Code";
+            this.CheckCode.UseVisualStyleBackColor = true;
+            this.CheckCode.Click += new System.EventHandler(this.CheckCode_Click);
             // 
             // Forgot_Password
             // 
@@ -122,13 +166,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CheckCode);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.EnterEmailCode);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.OutputPassword);
             this.Controls.Add(this.ButtonForgotPasswordBack);
             this.Controls.Add(this.ButtonConfirm);
-            this.Controls.Add(this.EnterForgotPasswordConfirmPassword);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.EnterForgotPasswordUserName);
-            this.Controls.Add(this.EnterForgotPasswordPassword);
-            this.Controls.Add(this.PasswordLabel);
+            this.Controls.Add(this.EnterForgotPasswordEmail);
+            this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.TitleForgotPassword);
             this.Name = "Forgot_Password";
@@ -141,13 +189,17 @@
         #endregion
 
         private Label TitleForgotPassword;
-        private TextBox EnterForgotPasswordConfirmPassword;
-        private Label label1;
         private TextBox EnterForgotPasswordUserName;
-        private TextBox EnterForgotPasswordPassword;
-        private Label PasswordLabel;
+        private TextBox EnterForgotPasswordEmail;
+        private Label EmailLabel;
         private Label UserNameLabel;
         private Button ButtonForgotPasswordBack;
         private Button ButtonConfirm;
+        private TextBox OutputPassword;
+        private Label label1;
+        private TextBox EnterEmailCode;
+        private Label label2;
+        private Label label3;
+        private Button CheckCode;
     }
 }

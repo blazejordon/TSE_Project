@@ -8,4 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="S22.Imap">
+      <HintPath>..\..\..\Desktop\S22.IMAP_DLL\S22.Imap.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

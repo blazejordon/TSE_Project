@@ -37,6 +37,8 @@
             this.RegisterConfirmPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.RegisterBack = new System.Windows.Forms.Button();
+            this.RegisterEmail = new System.Windows.Forms.TextBox();
+            this.EmailLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TitleRegister
@@ -58,15 +60,16 @@
             // 
             // RegisterPassword
             // 
-            this.RegisterPassword.Location = new System.Drawing.Point(296, 221);
+            this.RegisterPassword.Location = new System.Drawing.Point(296, 260);
             this.RegisterPassword.Name = "RegisterPassword";
             this.RegisterPassword.Size = new System.Drawing.Size(203, 23);
             this.RegisterPassword.TabIndex = 13;
+            this.RegisterPassword.UseSystemPasswordChar = true;
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(296, 203);
+            this.PasswordLabel.Location = new System.Drawing.Point(296, 242);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(57, 15);
             this.PasswordLabel.TabIndex = 12;
@@ -93,15 +96,16 @@
             // 
             // RegisterConfirmPassword
             // 
-            this.RegisterConfirmPassword.Location = new System.Drawing.Point(296, 290);
+            this.RegisterConfirmPassword.Location = new System.Drawing.Point(296, 315);
             this.RegisterConfirmPassword.Name = "RegisterConfirmPassword";
             this.RegisterConfirmPassword.Size = new System.Drawing.Size(203, 23);
             this.RegisterConfirmPassword.TabIndex = 16;
+            this.RegisterConfirmPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(296, 272);
+            this.label1.Location = new System.Drawing.Point(296, 297);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 15);
             this.label1.TabIndex = 15;
@@ -117,12 +121,30 @@
             this.RegisterBack.UseVisualStyleBackColor = true;
             this.RegisterBack.Click += new System.EventHandler(this.RegisterBack_Click);
             // 
+            // RegisterEmail
+            // 
+            this.RegisterEmail.Location = new System.Drawing.Point(296, 207);
+            this.RegisterEmail.Name = "RegisterEmail";
+            this.RegisterEmail.Size = new System.Drawing.Size(203, 23);
+            this.RegisterEmail.TabIndex = 19;
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(296, 189);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(36, 15);
+            this.EmailLabel.TabIndex = 18;
+            this.EmailLabel.Text = "Email";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RegisterEmail);
+            this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.RegisterBack);
             this.Controls.Add(this.RegisterConfirmPassword);
             this.Controls.Add(this.label1);
@@ -150,5 +172,7 @@
         private TextBox RegisterConfirmPassword;
         private Label label1;
         private Button RegisterBack;
+        private TextBox RegisterEmail;
+        private Label EmailLabel;
     }
 }

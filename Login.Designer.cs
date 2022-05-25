@@ -37,6 +37,8 @@
             this.TitleLogin = new System.Windows.Forms.Label();
             this.ForgotPasswordButton = new System.Windows.Forms.Button();
             this.IncorrectLoginMessage = new System.Windows.Forms.Label();
+            this.EnterEmail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ButtonRegister
@@ -58,7 +60,7 @@
             // 
             // EnterPassword
             // 
-            this.EnterPassword.Location = new System.Drawing.Point(296, 221);
+            this.EnterPassword.Location = new System.Drawing.Point(296, 287);
             this.EnterPassword.Name = "EnterPassword";
             this.EnterPassword.Size = new System.Drawing.Size(203, 23);
             this.EnterPassword.TabIndex = 22;
@@ -67,7 +69,7 @@
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(296, 203);
+            this.PasswordLabel.Location = new System.Drawing.Point(296, 269);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(57, 15);
             this.PasswordLabel.TabIndex = 21;
@@ -116,11 +118,27 @@
             // 
             this.IncorrectLoginMessage.AutoSize = true;
             this.IncorrectLoginMessage.ForeColor = System.Drawing.Color.Red;
-            this.IncorrectLoginMessage.Location = new System.Drawing.Point(306, 291);
+            this.IncorrectLoginMessage.Location = new System.Drawing.Point(306, 232);
             this.IncorrectLoginMessage.Name = "IncorrectLoginMessage";
             this.IncorrectLoginMessage.Size = new System.Drawing.Size(0, 15);
             this.IncorrectLoginMessage.TabIndex = 28;
             this.IncorrectLoginMessage.Visible = false;
+            // 
+            // EnterEmail
+            // 
+            this.EnterEmail.Location = new System.Drawing.Point(296, 224);
+            this.EnterEmail.Name = "EnterEmail";
+            this.EnterEmail.Size = new System.Drawing.Size(203, 23);
+            this.EnterEmail.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(296, 206);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 15);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Email";
             // 
             // Login
             // 
@@ -128,6 +146,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.EnterEmail);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.IncorrectLoginMessage);
             this.Controls.Add(this.ForgotPasswordButton);
             this.Controls.Add(this.ButtonRegister);
@@ -155,5 +175,7 @@
         private Label TitleLogin;
         private Button ForgotPasswordButton;
         private Label IncorrectLoginMessage;
+        private TextBox EnterEmail;
+        private Label label1;
     }
 }

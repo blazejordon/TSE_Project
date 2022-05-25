@@ -15,27 +15,18 @@ namespace TSE
         public Login()
         {
             InitializeComponent();
-
-            string path = "TSEprogramdata.txt";
-            using (StreamWriter sw = (File.Exists(path)) ? File.AppendText(path) : File.CreateText(path))
-            {
-                sw.Close();
-            }
+            CreateFile GetPath = new CreateFile();
+            string filepath = GetPath.LoginData();
         }
-        private bool VerifyLogin(string AttemptUsername, string AttemptPassword)
+        private bool VerifyLogin(string AttemptUsername, string AttemptEmail, string AttemptPassword)
         {
-            string path = "TSEprogramdata.txt";
-           
-            //var UserLogin = from line in File.ReadLines(path) //Use for changing passwords and making them.
-            //                    where (line.StartsWith("UserLogin:") &
-            //                    line.StartsWith("TestUsername")) &
-            //                    line.Contains("123")
-            //                    select line;
+            CreateFile GetPath = new CreateFile();
+            string filepath = GetPath.LoginData(); //Retrieves the file path
 
-            //Retrieves all pieces of data that are related to login from the program text file
+            //Retrieves all Login data
             List<List<string>> AllLogins = new List<List<string>>();
             List<string> current = null;
-            foreach (var line in File.ReadAllLines(path))
+            foreach (var line in File.ReadAllLines(filepath))
             {
                 if (line.Contains("UserLoginStart//") && current == null)
                 {
@@ -55,13 +46,12 @@ namespace TSE
             //Sequetinally goes through all retireved data to find if the username and password are correct and match
             int x = 0;
             int y = 0;
+            string EncryptPassword = Encrypt(AttemptPassword);
             foreach (var list in AllLogins)
             {
                 foreach (var item in list)
                 {
-                    string values = x.ToString() + " " + y.ToString();
-                    //MessageBox.Show(groups[x][y], values);
-                    if (AllLogins[x][y] == AttemptUsername && AllLogins[x][y + 1] == AttemptPassword)
+                    if (AllLogins[x][y] == AttemptUsername && AllLogins[x][y + 1] == EncryptPassword && AllLogins[x][y + 2] == AttemptEmail)
                     {
                         return true;
                     }
@@ -75,14 +65,11 @@ namespace TSE
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            //string testencrypt = Encrypt("1234");
-            //string testdecrypt = Decrypt("CUFmrcVwQLU=");
-            //MessageBox.Show(testencrypt);
-            //MessageBox.Show(testdecrypt);
             bool Verified = false;
             string AttemptUsername = EnterUserName.Text;
+            string AttemptEmail = EnterEmail.Text;
             string AttemptPassword = EnterPassword.Text;
-            Verified = VerifyLogin(AttemptUsername, AttemptPassword);
+            Verified = VerifyLogin(AttemptUsername, AttemptEmail, AttemptPassword); //Checks if eneted login is valid
 
             if (Verified == true)
             {
@@ -90,11 +77,7 @@ namespace TSE
             }             
             else
             {
-                string testencrypt = Encrypt("Test"); //test, not feature
-                //
-                // PUT 'correct();' HERE TO SKIP TYPING IN LOGIN DATA.
-                //
-                MessageBox.Show("Incorrect Username or Password!", "Error");
+                MessageBox.Show("Incorrect Username, Password or Email!", "Error");
             }
         }
 
