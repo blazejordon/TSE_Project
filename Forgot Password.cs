@@ -27,11 +27,6 @@ namespace TSE
             this.Hide();
         }
 
-        private void PasswordLabel_Click(object sender, EventArgs e)
-        {
-
-        } //not needed
-
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
 

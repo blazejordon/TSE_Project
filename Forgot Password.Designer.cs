@@ -75,7 +75,6 @@
             this.EmailLabel.Size = new System.Drawing.Size(36, 15);
             this.EmailLabel.TabIndex = 18;
             this.EmailLabel.Text = "Email";
-            this.EmailLabel.Click += new System.EventHandler(this.PasswordLabel_Click);
             // 
             // UserNameLabel
             // 
