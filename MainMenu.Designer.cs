@@ -54,6 +54,7 @@
             this.StartLogging.TabIndex = 1;
             this.StartLogging.Text = "Start";
             this.StartLogging.UseVisualStyleBackColor = true;
+            this.StartLogging.Click += new System.EventHandler(this.StartLogging_Click);
             // 
             // StopLogging
             // 
@@ -65,6 +66,7 @@
             this.StopLogging.TabIndex = 2;
             this.StopLogging.Text = "Stop";
             this.StopLogging.UseVisualStyleBackColor = true;
+            this.StopLogging.Click += new System.EventHandler(this.StopLogging_Click);
             // 
             // EndProgram
             // 

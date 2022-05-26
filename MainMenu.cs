@@ -1,8 +1,6 @@
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Threading;
-using System.Windows.Input;
-
 using System.Timers;
 
 namespace TSE
@@ -10,6 +8,17 @@ namespace TSE
   
     public partial class MainMenu : Form
     {
+        public static int minutesCount = 0;
+        public static System.Timers.Timer aTmr = new System.Timers.Timer(6000);
+
+        bool stop = false;
+        bool save = false;
+
+
+        [DllImport("User32.dll")]
+        public static extern int GetAsyncKeyState(Int32 i);
+
+
         public MainMenu()
         {
             InitializeComponent();
@@ -34,6 +43,16 @@ namespace TSE
 
         private void CreateReport_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void StartLogging_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            bool save = false;
+
+
+
             String filepath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             if (!Directory.Exists(filepath))
@@ -50,11 +69,70 @@ namespace TSE
 
                 }
             }
+
+            
+            aTmr.Enabled = true;
+            aTmr.AutoReset = true;
+            aTmr.Start();
+
+            while (true)
+            {
+                aTmr.Elapsed += ATmr_Elapsed;
+                System.Threading.Thread.Sleep(5);
+
+
+
+                for (int i = 32; i < 127; i++)
+                {
+                    int keyState = GetAsyncKeyState(i);
+                    if (keyState != 0)
+                    {
+                        count++;
+
+
+
+                        if (save == true)
+                        {
+                            string toSave = count.ToString();
+
+                            using (StreamWriter sw = File.AppendText(path))
+                            {
+                                
+                                sw.Write(toSave, "\n");
+                                
+                                sw.Close();
+                            }
+
+                            save = false;
+                            count = 0;
+                        }
+                    }
+                }
+
+                if (stop == true) { break; }
+
+
+
+            }
+
+
         }
+
+        private void ATmr_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            minutesCount++;
+            save = true;
+        }
+
+        private void StopLogging_Click(object sender, EventArgs e)
+        {
+            stop = true;
+        }
+
     }
 }
-/*
 
+/*
 
 namespace TSE
 {
