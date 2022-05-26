@@ -13,11 +13,8 @@ namespace TSE
         public MainMenu()
         {
             InitializeComponent();
-
-
-
-
-
+            Username.Text = Login.Username;
+            Email.Text = Login.Email;
         }
 
         private void EndProgram_Click(object sender, EventArgs e)
