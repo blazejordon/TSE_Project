@@ -179,7 +179,7 @@
             this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.TitleForgotPassword);
             this.Name = "Forgot_Password";
-            this.Text = "Forgot_Password";
+            this.Text = "F";
             this.ResumeLayout(false);
             this.PerformLayout();
 

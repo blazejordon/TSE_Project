@@ -65,12 +65,12 @@ namespace TSE
                 }
                 else
                 {
-                    MessageBox.Show(email + " is invalid an email!", "Error");
+                    MessageBox.Show(email + " is an invalid email!", "Error");
                 }
             }
             else
             {
-                MessageBox.Show("Password and Confirm Password do not match!", "Error");
+                MessageBox.Show("Please Enter all areas for making a log in!", "Error");
             }
         }
 
