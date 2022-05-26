@@ -36,6 +36,7 @@
             this.CreateReport = new System.Windows.Forms.Button();
             this.Username = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // Title
@@ -151,5 +152,6 @@
         private Button CreateReport;
         private Label Username;
         private Label Email;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

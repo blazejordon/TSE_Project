@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 using System.IO;
 using System.Threading;
 using System.Timers;
@@ -11,9 +12,10 @@ namespace TSE
         public static int minutesCount = 0;
         public static System.Timers.Timer aTmr = new System.Timers.Timer(6000);
 
-        bool stop = false;
-        bool save = false;
+        public static bool stop = false;
+        public static bool save = false;
 
+        BackgroundWorker BackgroundWorker1;
 
         [DllImport("User32.dll")]
         public static extern int GetAsyncKeyState(Int32 i);
@@ -45,6 +47,14 @@ namespace TSE
 
         private void StartLogging_Click(object sender, EventArgs e)
         {
+            BackgroundWorker1 = new BackgroundWorker();
+            BackgroundWorker1.DoWork += (obj, ea) => Back(1);
+            BackgroundWorker1.RunWorkerAsync();
+
+        }
+
+        private void Back(int times)
+        {
             int count = 0;
             bool save = false;
 
@@ -67,7 +77,7 @@ namespace TSE
                 }
             }
 
-            
+
             aTmr.Enabled = true;
             aTmr.AutoReset = true;
             aTmr.Start();
@@ -85,8 +95,8 @@ namespace TSE
                     if (keyState != 0)
                     {
                         count++;
-
-
+                        
+                        
 
                         if (save == true)
                         {
@@ -94,14 +104,14 @@ namespace TSE
 
                             using (StreamWriter sw = File.AppendText(path))
                             {
-                                
-                                sw.Write(toSave, "\n");
-                                
+
+                                sw.Write((toSave), "\n");
+
                                 sw.Close();
                             }
-
-                            save = false;
                             count = 0;
+                            save = false;
+
                         }
                     }
                 }
@@ -111,11 +121,11 @@ namespace TSE
 
 
             }
-
-
         }
 
-        private void ATmr_Elapsed(object sender, ElapsedEventArgs e)
+
+
+        private static void ATmr_Elapsed(object sender, ElapsedEventArgs e)
         {
             minutesCount++;
             save = true;
