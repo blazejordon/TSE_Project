@@ -34,7 +34,7 @@ namespace TSE
             }
             catch (SmtpException ex)
             {
-                MessageBox.Show("Cannot send email", "Email Error");
+                MessageBox.Show("Cannot send file, Error Message: " + ex.ToString(), "Email Error");
             }
             
         }
