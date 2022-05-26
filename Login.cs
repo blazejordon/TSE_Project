@@ -62,6 +62,8 @@ namespace TSE
             }
             return false;
         }
+        public static string Username = "";
+        public static string Email = "";
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
@@ -73,19 +75,16 @@ namespace TSE
 
             if (Verified == true)
             {
-                correct();
+                Username = AttemptUsername;
+                Email = AttemptEmail;
+                MainMenu Menu = new MainMenu();
+                Menu.Show();
+                this.Hide();
             }             
             else
             {
                 MessageBox.Show("Incorrect Username, Password or Email!", "Error");
             }
-        }
-
-        private void correct() //opens the main form.
-        {
-            MainMenu Menu = new MainMenu();
-            Menu.Show();
-            this.Hide();
         }
 
         private string Encrypt(string Password) //Encrypts a password

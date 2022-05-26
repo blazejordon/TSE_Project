@@ -34,6 +34,8 @@
             this.EndProgram = new System.Windows.Forms.Button();
             this.Signout = new System.Windows.Forms.Button();
             this.CreateReport = new System.Windows.Forms.Button();
+            this.Username = new System.Windows.Forms.Label();
+            this.Email = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -48,7 +50,7 @@
             // 
             // StartLogging
             // 
-            this.StartLogging.Location = new System.Drawing.Point(12, 118);
+            this.StartLogging.Location = new System.Drawing.Point(13, 155);
             this.StartLogging.Name = "StartLogging";
             this.StartLogging.Size = new System.Drawing.Size(136, 67);
             this.StartLogging.TabIndex = 1;
@@ -60,7 +62,7 @@
             // 
             this.StopLogging.BackColor = System.Drawing.SystemColors.Control;
             this.StopLogging.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.StopLogging.Location = new System.Drawing.Point(159, 118);
+            this.StopLogging.Location = new System.Drawing.Point(160, 155);
             this.StopLogging.Name = "StopLogging";
             this.StopLogging.Size = new System.Drawing.Size(136, 67);
             this.StopLogging.TabIndex = 2;
@@ -92,7 +94,7 @@
             // 
             this.CreateReport.BackColor = System.Drawing.SystemColors.Control;
             this.CreateReport.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CreateReport.Location = new System.Drawing.Point(81, 206);
+            this.CreateReport.Location = new System.Drawing.Point(302, 155);
             this.CreateReport.Name = "CreateReport";
             this.CreateReport.Size = new System.Drawing.Size(136, 67);
             this.CreateReport.TabIndex = 6;
@@ -100,12 +102,32 @@
             this.CreateReport.UseVisualStyleBackColor = true;
             this.CreateReport.Click += new System.EventHandler(this.CreateReport_Click);
             // 
+            // Username
+            // 
+            this.Username.AutoSize = true;
+            this.Username.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Username.Location = new System.Drawing.Point(13, 68);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(0, 35);
+            this.Username.TabIndex = 7;
+            // 
+            // Email
+            // 
+            this.Email.AutoSize = true;
+            this.Email.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Email.Location = new System.Drawing.Point(13, 110);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(0, 35);
+            this.Email.TabIndex = 8;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Email);
+            this.Controls.Add(this.Username);
             this.Controls.Add(this.CreateReport);
             this.Controls.Add(this.Signout);
             this.Controls.Add(this.EndProgram);
@@ -127,5 +149,7 @@
         private Button EndProgram;
         private Button Signout;
         private Button CreateReport;
+        private Label Username;
+        private Label Email;
     }
 }
